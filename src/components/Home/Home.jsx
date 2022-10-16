@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import Typewriter from "typewriter-effect";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -9,7 +10,20 @@ const Home = () => {
         {/* <Navbar /> */}
         <div className="header_text">
           <h2 className="header_head">
-            Monkey Pox Vaccination Managemenet System
+            {/* Monkey Pox Vaccination Managemenet System */}
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString("Monkey Pox Vaccination Managemenet System")
+                  .pauseFor(1000)
+                  .deleteAll()
+                  .typeString("DBMS Project")
+                  .pauseFor(1000)
+                  .deleteAll()
+                  .typeString("Monkey Pox Vaccination Managemenet System")
+                  .start();
+              }}
+            />
           </h2>
           <Link to="/signup" className="head_btn">
             Get Vaccinated
