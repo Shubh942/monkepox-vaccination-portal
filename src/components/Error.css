@@ -1,0 +1,29 @@
+.error {
+  /* background-color: #121212; */
+  background-color: #ebfff4;
+  color: #121212;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.vaccination-image {
+  height: 400px;
+  width: auto;
+}
+
+.back {
+  color: white;
+  background-color: #ff4820;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+  transition: all 0.3;
+}
+
+.back:hover {
+  background-color: #f22c00;
+}
