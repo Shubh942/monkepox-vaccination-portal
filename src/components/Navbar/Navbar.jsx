@@ -50,8 +50,12 @@ const Navbar = () => {
         </div>
       </div>
       <div className="monkey__navbar-sign">
-        <p>Login</p>
-        <button type="button">Sign Up</button>
+        <p>
+          <Link to="Login">Login</Link>
+        </p>
+        <button type="button">
+          <Link to="Signup">Sign Up</Link>
+        </button>
       </div>
       <div className="monkey__navbar-menu">
         {toggleMenu ? (
@@ -72,8 +76,12 @@ const Navbar = () => {
             <div className="monkey__navbar-menu_container-links">
               <Menu />
               <div className="monkey__navbar-menu_container-links-sign">
-                <p>Sign in</p>
-                <button type="button">Sign Up</button>
+                <p>
+                  <Link to="Login">Login</Link>
+                </p>
+                <button type="button">
+                  <Link to="Signup">Sign Up</Link>
+                </button>
               </div>
             </div>
           </div>
