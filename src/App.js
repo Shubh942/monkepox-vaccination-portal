@@ -1,20 +1,25 @@
 import "./App.css";
-import Header from "./components/Header";
-import Cases from "./components/Cases";
-import Team from "./components/Team";
-import Navbar from "./components/Navbar";
-import Error from "./components/Error";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./components/Home/Home";
+import Cases from "./components/Cases/Cases";
+import Hospital from "./components/Hospital/Hospital";
+import Vaccination from "./components/Vaccination/Vaccination";
+import Team from "./components/Team/Team";
+import Error from "./components/Error/Error";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Navbar />
         <Routes>
-          <Route exact path="/" element={<Header />} />
-          <Route path="/cases" element={<Cases />} />
-          <Route path="/cases" element={<Navbar />} />
-          <Route path="/cases" element={<Team />} />
+          <Route path="navbar" element={<Navbar />} />
+          <Route exact path="/" element={<Home />} />
+          <Route path="cases" element={<Cases />} />
+          <Route path="hospital" element={<Hospital />} />
+          <Route path="vaccination" element={<Vaccination />} />
+          <Route path="team" element={<Team />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Router>

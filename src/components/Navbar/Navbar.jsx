@@ -1,26 +1,34 @@
 import React, { useState } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import icon from "../images/monkeypox.webp";
+import icon from "../images/monkeypoxlogo.png";
 import "./Navbar.css";
 
 const Menu = () => (
   <>
     <p>
       {/* <a href="#home">Cases</a> */}
-      <Link to="/cases">Cases</Link>
+      <Link to="cases" className="link">
+        Cases
+      </Link>
     </p>
     <p>
       {/* <a href="#wgpt3">Nearby Hospitals</a> */}
-      <Link to="/hospitals">Nearby Hospitals</Link>
+      <Link to="Hospital" className="link">
+        Nearby Hospitals
+      </Link>
     </p>
     <p>
       {/* <a href="#possibility">Vaccination</a> */}
-      <Link to="/vaccination">Vaccination</Link>
+      <Link to="Vaccination" className="link">
+        Vaccination
+      </Link>
     </p>
     <p>
       {/* <a href="#features">Team Members</a> */}
-      <Link to="/Team">Team Members</Link>
+      <Link to="Team" className="link">
+        Team Members
+      </Link>
     </p>
   </>
 );
@@ -33,7 +41,9 @@ const Navbar = () => {
       <div className="monkey__navbar-links">
         <div className="monkey__navbar-links_logo">
           {/* <h3>MONKEYPOX VACCINATION</h3> */}
-          <img src={icon} alt="monkeypox vaccination" />
+          <Link to="/">
+            <img src={icon} alt="monkeypox vaccination" />
+          </Link>
         </div>
         <div className="monkey__navbar-links_container">
           <Menu />

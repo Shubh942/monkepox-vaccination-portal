@@ -4,18 +4,14 @@ import { useNavigate } from "react-router-dom";
 const Cases = () => {
   const navigate = useNavigate();
 
-  const getData = async () => {
-    try {
-      const res = await fetch("https://api.covid19india.org/data.json");
-      const actualData = await res.json();
-      console.log(actualData);
-    } catch (err) {
-      console.log(err);
-    }
+  const title = async (title) => {
+    const response = await fetch("https://api.covid19india.org/data.json");
+    const data = await response.json();
+    console.log(data);
   };
 
   useEffect(() => {
-    getData();
+    title();
   }, []);
 
   return (
