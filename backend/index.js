@@ -40,18 +40,21 @@ db.connect((err) => {
 
 app.post('/register', (req, res) => {
 
+  // const values = [req.body.username, req.body.password, req.body.aadhar];
   const username = req.body.username;
   const password = req.body.password;
   const aadhar = req.body.aadhar;
+  // let q = "INSERT INTO register(username,aadhar,password) VALUES (?)"
 
-  console.log(username)
   db.query(
     "INSERT INTO register (username,aadhar,password) VALUES (?,?,?)",
     [username, aadhar, password],
     (err, result) => {
       console.log(err);
-      console.log(username)
-    })
+      // console.log(username)
+    }
+  )
+  res.status(200).json("working")
 })
 
 app.post('/login', (req, res) => {
@@ -63,7 +66,7 @@ app.post('/login', (req, res) => {
     [username, password],
     (err, result) => {
       if (err) {
-        console.log(err);
+        res.send({ err: err });
       } if (result) {
         res.send(result);
       } else {

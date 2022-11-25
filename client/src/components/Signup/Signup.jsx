@@ -11,14 +11,17 @@ const Signup = () => {
   const register = (e) => {
     e.preventDefault()
     console.log("helaew")
-    Axios.post('https://localhost:4000/register',
+    console.log(usernamereg)
+    console.log(passwordreg)
+    Axios.post('http://localhost:4000/register',
       {
         username: usernamereg,
         password: passwordreg,
         aadhar: aadhar,
-      })
-      .then((response) => {
+      }).then((response) => {
         console.log(response)
+      }).catch((err) => {
+        console.log(err)
       })
   }
   return (
