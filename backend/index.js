@@ -110,7 +110,7 @@ app.post('/booking', (req, res) => {
           from: from,
           to: email,
           subject: "Sucessfully booked your vaccination",
-          text: `Thank you ${name} for booking vaccination on our site. your date of vaccination is ${date}`,
+          text: `Thank you ${name} for booking vaccination on our site. your date of vaccination is ${date} in ${hospital} for ${vaccine} vaccine`,
         };
         transporter.sendMail(mailoptions, (err, result) => {
           if (err) {
