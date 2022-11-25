@@ -9,7 +9,7 @@ const Booked = () => {
 
   return (
     <div className="error">
-      <h2>Ticket Booked</h2>
+      <h2>Ticket Booked, check your email for confirmation</h2>
       <img src={image} alt="" className="vaccination-image" />
       <BiArrowBack
         className="back"

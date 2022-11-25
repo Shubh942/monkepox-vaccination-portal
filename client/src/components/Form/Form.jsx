@@ -9,6 +9,7 @@ const Form = () => {
   const navigate = useNavigate();
 
   const [name, setname] = useState("");
+  const [email, setemail] = useState("");
   const [age, setAge] = useState("");
   const [aadhar, setAadhar] = useState("");
 
@@ -28,7 +29,8 @@ const Form = () => {
         sex: sex,
         hospital: hospital,
         vaccine: vaccine,
-        date: date
+        date: date,
+        email: email
       }
     ).then((response) => {
       navigate("/Booked");
@@ -53,6 +55,18 @@ const Form = () => {
               value={name}
               onChange={(e) => {
                 setname(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="email"
+              name="email"
+              value={email}
+              onChange={(e) => {
+                setemail(e.target.value);
               }}
             />
           </div>

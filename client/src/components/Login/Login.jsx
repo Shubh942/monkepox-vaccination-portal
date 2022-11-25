@@ -22,7 +22,10 @@ const Login = () => {
       }).then((response) => {
         if (response.data.message) {
           setloginstatus(response.data.message);
-        } else {
+        } else if (username === "admin" && password === "root") {
+          navigate("/Admin");
+        }
+        else {
           navigate("/Form");
           setloginstatus(response.data[0].username);
         }

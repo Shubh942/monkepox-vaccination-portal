@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const mysql = require("mysql")
 const cors = require("cors")
+const nodemailer = require("nodemailer")
 
 app.use(express.json())
 app.use(cors())
@@ -86,18 +87,46 @@ app.post('/booking', (req, res) => {
   const hospital = req.body.hospital;
   const vaccine = req.body.vaccine;
   const date = req.body.date;
-
+  const email = req.body.email;
+  const from = "impostercrewfreedom@gmail.com";
   console.log(name, age, sex, aadhar, date, hospital, vaccine)
   db.query(
     "INSERT INTO user (name, age, sex, aadhar, date, hospital, vaccine) VALUES (?,?,?,?,?,?,?)",
     [name, age, sex, aadhar, date, hospital, vaccine],
+
     (err, result) => {
-      console.log(err);
+      if (err) {
+        console.log(err);
+      }
+      else {
+        var transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: "impostercrewfreedom@gmail.com",
+            pass: "avuwpktrouxkalqw",
+          },
+        });
+        var mailoptions = {
+          from: from,
+          to: email,
+          subject: "Sucessfully booked your vaccination",
+          text: `Thank you ${name} for booking vaccination on our site. your date of vaccination is ${date}`,
+        };
+        transporter.sendMail(mailoptions, (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("Email send: " + result.response);
+          }
+        });
+      }
       // console.log(username)
     }
   )
   res.status(200).json("working")
 })
+
+
 
 app.listen(PORT, () => {
   console.log(`server started at port ${PORT}`)
