@@ -1,0 +1,83 @@
+.home {
+  background-color: #121212;
+}
+
+.header {
+  /* background-color: #000; */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EO5RIOO7OJOC7GKT6AKI7H5SQ4.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 90vh;
+}
+
+.header_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 100px; */
+  gap: 30px;
+}
+
+.header_head {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 75px;
+  text-align: center;
+  max-width: 900px;
+  padding-top: 150px;
+}
+
+.head_btn {
+  color: white;
+  padding: 16px 24px;
+  background: #ff4820;
+  font-size: 18px;
+  border-radius: 30px;
+  transition: all 0.3s;
+}
+
+.head_btn:hover {
+  background: #f22c00;
+}
+
+.key-facts {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+
+.key-facts > h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.key-facts > ul > li {
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: "Times New Roman", Times, serif; */
+  font-weight: lighter;
+  font-size: 18px;
+  line-height: 30px;
+  opacity: 0.85;
+}
+
+@media screen and (max-width: 900px) {
+  .header_head {
+    font-size: 50px;
+  }
+  .key-facts {
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header_head {
+    font-size: 40px;
+    line-height: 45px;
+  }
+}
