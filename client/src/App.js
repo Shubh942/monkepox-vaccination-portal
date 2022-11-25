@@ -7,6 +7,8 @@ import Vaccination from "./components/Vaccination/Vaccination";
 import Team from "./components/Team/Team";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
+import Form from "./components/Form/Form";
+import Booked from "./components/Booked/Booked";
 import Error from "./components/Error/Error";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -24,6 +26,8 @@ function App() {
           <Route path="team" element={<Team />} />
           <Route path="login" element={<Login />} />
           <Route path="Signup" element={<Signup />} />
+          <Route path="Form" element={<Form />} />
+          <Route path="Booked" element={<Booked />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Router>

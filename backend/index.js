@@ -67,13 +67,36 @@ app.post('/login', (req, res) => {
     (err, result) => {
       if (err) {
         res.send({ err: err });
-      } if (result) {
+      } if (result.length > 0) {
         res.send(result);
       } else {
         res.send({ message: "wrong username/password combination" })
       }
     }
   )
+})
+
+app.post('/booking', (req, res) => {
+
+  // const values = [req.body.username, req.body.password, req.body.aadhar];
+  const name = req.body.name;
+  const age = req.body.age;
+  const aadhar = req.body.aadhar;
+  const sex = req.body.sex;
+  const hospital = req.body.hospital;
+  const vaccine = req.body.vaccine;
+  const date = req.body.date;
+
+  console.log(name, age, sex, aadhar, date, hospital, vaccine)
+  db.query(
+    "INSERT INTO user (name, age, sex, aadhar, date, hospital, vaccine) VALUES (?,?,?,?,?,?,?)",
+    [name, age, sex, aadhar, date, hospital, vaccine],
+    (err, result) => {
+      console.log(err);
+      // console.log(username)
+    }
+  )
+  res.status(200).json("working")
 })
 
 app.listen(PORT, () => {
