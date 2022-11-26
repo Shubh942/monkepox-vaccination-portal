@@ -20,10 +20,10 @@ const Login = () => {
         username: username,
         password: password,
       }).then((response) => {
-        if (response.data.message) {
-          setloginstatus(response.data.message);
-        } else if (username === "admin" && password === "root") {
+        if (username === "admin" && password === "root") {
           navigate("/Admin");
+        } else if (response.data.message) {
+          setloginstatus(response.data.message);
         }
         else {
           navigate("/Form");

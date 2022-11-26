@@ -9,6 +9,9 @@ app.use(cors())
 
 const PORT = 4000
 
+let sample1;
+let sample2;
+
 app.get("/", (req, res) => {
   res.send("backend page created using node js")
 })
@@ -127,6 +130,38 @@ app.post('/booking', (req, res) => {
 })
 
 
+// db.query("SELECT * FROM user", (err, datafromtable) => {
+//   if (err) {
+//     throw err;
+//   }
+//   sample1 = datafromtable;
+//   // res.send(sample1)
+//   console.log(datafromtable);
+// });
+
+app.get("/apitable", (req, res) => {
+  db.query("SELECT * FROM user", (err, datafromtable) => {
+    if (err) {
+      throw err;
+    }
+    sample1 = datafromtable;
+    // res.send(sample1)
+    console.log(datafromtable);
+  });
+  res.json(sample1)
+})
+
+app.get("/apitable2", (req, res) => {
+  db.query("SELECT * FROM register", (err, datafromtable) => {
+    if (err) {
+      throw err;
+    }
+    sample2 = datafromtable;
+    // res.send(sample1)
+    console.log(datafromtable);
+  });
+  res.json(sample2)
+})
 
 app.listen(PORT, () => {
   console.log(`server started at port ${PORT}`)
