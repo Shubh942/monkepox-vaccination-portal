@@ -113,7 +113,23 @@ app.post('/booking', (req, res) => {
           from: from,
           to: email,
           subject: "Sucessfully booked your vaccination",
-          text: `Thank you ${name} for booking vaccination on our site. your date of vaccination is ${date} in ${hospital} for ${vaccine} vaccine`,
+          html: `<!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="UTF-8" />
+              <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>Document</title>
+            </head>
+            <body>
+              <img width="250" height="250" src="https://img.freepik.com/free-vector/cartoon-vaccination-campaign-illustration_52683-62384.jpg?w=740&t=st=1669423848~exp=1669424448~hmac=8fb250b767d7d281517e207b045540faa88a8b852b5913513d9988ecc36b89ca" alt="" />
+              <p>Thank you <b>${name}</b></p>
+              for booking vaccination on our site.
+              <p>your date of vaccination is <strong>${date}</strong></p>
+              in <b> ${hospital}</b> for <b>${vaccine}</b> vaccine
+            </body>
+          </html>
+          `,
         };
         transporter.sendMail(mailoptions, (err, result) => {
           if (err) {
@@ -166,3 +182,4 @@ app.get("/apitable2", (req, res) => {
 app.listen(PORT, () => {
   console.log(`server started at port ${PORT}`)
 })
+
